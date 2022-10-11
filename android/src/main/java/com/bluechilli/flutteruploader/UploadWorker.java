@@ -269,7 +269,7 @@ public class UploadWorker extends ListenableWorker implements CountProgressListe
         responseString = body.string();
       }
 
-      if (!response.isSuccessful()) {
+      if (!response.isSuccessful() && statusCode != 308) {
         return Result.failure(
             createOutputErrorData(
                 UploadStatus.FAILED, statusCode, "upload_error", responseString, null));

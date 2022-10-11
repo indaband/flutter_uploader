@@ -360,6 +360,6 @@ extension URLSessionUploader: URLSessionDelegate, URLSessionDataDelegate, URLSes
     }
 
     private func isRequestSuccessful(_ statusCode: Int) -> Bool {
-        return statusCode >= 200 && statusCode <= 299
+        return statusCode >= 200 && statusCode <= 299 || statusCode == 308
     }
 }
